@@ -1,0 +1,18 @@
+<h2>Account Information</h2>
+
+<div *ngIf="flag" [ngStyle]="{'color':'green'}">Thank you for registering with us, {{user.first_name}}. We just sent you a 
+  confirmation email at {{user.email}}, and we will send all mail to {{user.street_address}} 
+  {{user.unit}}, {{user.city}} {{user.state}}</div>
+
+<form (submit)= 'onSubmit()'>
+  <p>First Name <input type='text' name='first_name'[(ngModel)] = 'user.first_name' #firstName="ngModel" required><span *ngIf="firstName.errors" [ngStyle]="{'color':'red'}">First name is required</span></p>
+  <p>Last Name <input type='text' name='last_name' [(ngModel)] = 'user.last_name' #lastName="ngModel" required> <span *ngIf="lastName.errors" [ngStyle]="{'color':'red'}">Last name is required</span></p>
+  <p>Email <input email type='email' name='email' [(ngModel)] = 'user.email' #email="ngModel"> <span *ngIf="email.errors" [ngStyle]="{'color':'red'}">A valid email is required</span></p>
+  <p>Password <input type='text' name='password' [(ngModel)] = 'user.password' #password="ngModel" required minlength="16"> <span *ngIf="password.errors" [ngStyle]="{'color':'red'}">Password must be at least 16 characters</span></p>
+  <p>Confirm Password <input type='text' name='confirm_password' [(ngModel)] = 'user.confirm_password' #confirmPassword="ngModel" required><span *ngIf="user.password!=user.confirm_password || confirmPassword.errors" [ngStyle]="{'color':'red'}">Passwords Must Match</span></p>
+  <p>Street Address <input type='text' name='street_address' [(ngModel)] = 'user.street_address' #streetAddress="ngModel" required> <span *ngIf="streetAddress.errors" [ngStyle]="{'color':'red'}">Street Address is Required</span></p>
+  <p>Unit or Apartment <input type='text' name='unit' [(ngModel)] = 'user.unit'></p> 
+  <p>City <input type='text' name='city' [(ngModel)] = 'user.city' #city="ngModel" required> <span *ngIf="city.errors" [ngStyle]="{'color':'red'}">City is required</span></p>
+  <p>State <input type='text' name='state' [(ngModel)] = 'user.state' #state="ngModel" required> <span *ngIf="state.errors" [ngStyle]="{'color':'red'}">State is required</span></p>
+  <input type='submit' *ngIf="!(firstName.errors || lastName.errors || email.errors || password.errors ||  confirmPassword.errors || streetAddress.errors || city.errors || state.errors)">
+</form>
