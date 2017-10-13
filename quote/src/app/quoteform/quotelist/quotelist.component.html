@@ -1,0 +1,8 @@
+<div *ngFor='let quote of quotes; let idx= index'>
+  <p>{{quote.quote}}</p>
+  <p>{{quote.author}}</p>
+  <p>{{quote.score}}</p>
+  <button [ngStyle]="{'background-color':'green'}" (click)='callParent({index:idx,method:"up"})'>Vote Up</button>
+  <button [ngStyle]="{'background-color':'red'}" (click)='callParent({index:idx,method:"down"})'>Vote Down</button>
+  <button [ngStyle]="{'background-color':'gray'}" (click)='callParent({index:idx,method:"delete"})'>Delete</button>
+</div>

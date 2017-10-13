@@ -1,0 +1,9 @@
+<h1>Add a Quote</h1>
+<textarea rows='5' cols='60' required minlength='4'  [(ngModel)]='quote.quote' #myQuote="ngModel">
+
+</textarea><span *ngIf='myQuote.errors' [ngStyle]="{'color':'red'}">Quote is required</span>
+<p>Author: <input type='text' required minlength='1' [(ngModel)]='quote.author' #myAuthor="ngModel"><span *ngIf='myAuthor.errors' [ngStyle]="{'color':'red'}">Author is required</span></p>
+<input type='submit' value='Add Quote' (click)='pushQuote()' *ngIf='!(myAuthor.errors || myQuote.errors)'>
+
+
+<app-quotelist [quotes]='this.quoteArray' (myEvent)='invoke($event)'></app-quotelist>
