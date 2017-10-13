@@ -1,0 +1,9 @@
+<h1>Github Score</h1>
+<form>
+  <p>Github Username: <input type='text' [(ngModel)]='username' name='poop'></p>
+  <input type='submit' value='Get Score' (click)='getScore(username)'>
+</form>
+<h1>Your Score: {{_scoreService.score | json}}</h1>
+{{_scoreService.gitHubUser | json}}
+
+
