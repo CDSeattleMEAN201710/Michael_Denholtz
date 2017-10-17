@@ -1,0 +1,12 @@
+<h1>Anonymous Notes</h1>
+
+<form (submit)='createNote()'>
+  <p>Note: <input type='text' name='content' required minlength='3' [(ngModel)]='note.content' #content="ngModel"><span *ngIf ='content.errors'>Note Content Must Be 3 or More Characters</span></p>
+  <input type='submit' value='add note' [disabled]='content.errors'>
+</form>
+<div id='scrolldiv'>
+<div *ngFor='let note of notes'>
+  <p>{{note.content}}                               {{note.createdAt | date:'medium'}}</p>
+</div>
+</div>
+
