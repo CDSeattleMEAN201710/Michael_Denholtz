@@ -1,0 +1,13 @@
+<h2>New Question</h2>
+<form #form='ngForm' (submit)='addQuestion()'>
+  <p>Question: <textarea rows='5' cols='40' name='question' [(ngModel)]='newQuestion.question' #question='ngModel' required minlength='15'> </textarea>
+      <span class='red' *ngIf='question.errors'>Question Must Be At Least 16 Characters </span></p>
+  <p>Correct Answer: <input type='text' name='answer' [(ngModel)]='newQuestion.answer' #answer='ngModel' required>
+      <span class='red' *ngIf='answer.errors'>Answer Is Required </span></p>
+  <p>Fake Answer 1: <input type='text' name='fakeanswer1' [(ngModel)]='newQuestion.fake1' #fakeanswer1='ngModel' required>
+    <span class='red' *ngIf='fakeanswer1.errors'>Fake Answers Are Required</span></p>
+  <p>Fake Answer 2: <input type='text' name='fakeanswer2' [(ngModel)]='newQuestion.fake2' #fakeanswer2='ngModel' required>
+    <span class='red' *ngIf='fakeanswer2.errors'>Fake Answers Are Required </span></p>
+  <a id='cancel' [routerLink]="['home','scorelist']">Cancel</a>
+  <input type='submit' value='Add Question'  [disabled]='!form.valid'>
+</form>

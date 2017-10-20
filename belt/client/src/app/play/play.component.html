@@ -1,0 +1,33 @@
+<h4>Hi _playername_! Please choose an answer for each question and submit the test once done. Good luck!</h4>
+<br>
+<form #f="ngForm" (submit)='grade()'>
+  <div>
+    <p>1. {{testQuestions[0]?.question}}</p>
+    <p>
+      <input type="radio" name='answer1' value="1" [(ngModel)]='test.answer1'> {{testQuestions[0]?.answer}}<br>
+      <input type="radio" name='answer1' value="2" [(ngModel)]='test.answer1'> {{testQuestions[0]?.fake1}}<br>
+      <input type="radio" name='answer1' value="3" [(ngModel)]='test.answer1'> {{testQuestions[0]?.fake2}}<br>
+    </p>
+  </div>
+  <div>
+      <p>2. {{testQuestions[1]?.question}}</p>
+      <p>
+        <input type="radio" name='answer2' value="3" [(ngModel)]='test.answer2'> {{testQuestions[1]?.fake1}}<br>
+        <input type="radio" name='answer2' value="2" [(ngModel)]='test.answer2'> {{testQuestions[1]?.fake2}}<br>
+        <input type="radio" name='answer2' value="1" [(ngModel)]='test.answer2'> {{testQuestions[1]?.answer}}<br>
+      </p>
+    </div>
+    <div>
+        <p>3. {{testQuestions[2]?.question}}</p>
+        <p>
+          <input type="radio" name='answer3' value="2" [(ngModel)]='test.answer3'> {{testQuestions[2]?.fake1}}<br>
+          <input type="radio" name='answer3' value="1" [(ngModel)]='test.answer3'> {{testQuestions[2]?.answer}}<br>
+          <input type="radio" name='answer3' value="3" [(ngModel)]='test.answer3'> {{testQuestions[2]?.fake2}}<br>
+        </p>
+      </div>
+  <a id='cancel' [routerLink]="['home','scorelist']">Cancel</a>
+  <input type='submit' value='Submit Test'>
+</form>
+
+
+
